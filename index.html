@@ -59,6 +59,32 @@
             margin-top: 15px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+        .references {
+            background: #eef4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .references h2 {
+            text-align: center;
+            color: #004080;
+        }
+        .references ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .references li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .references a {
+            text-decoration: none;
+            color: #004080;
+            font-weight: bold;
+        }
+        .references a:hover {
+            text-decoration: underline;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -83,7 +109,6 @@
     <div class="container">
         <h2>Introduction</h2>
         <p>Polars is an advanced DataFrame library designed for high-performance data analysis. It provides an efficient alternative to traditional tools such as Pandas, offering improved speed and memory management.</p>
-        <p>Unlike many existing libraries, Polars is built on the Rust programming language, leveraging its inherent advantages in performance and safety. It is particularly well-suited for handling large datasets, thanks to its ability to perform multi-threaded operations and lazy evaluation.</p>
         <p><b>Polars is ideal for:</b></p>
         <ul>
             <li>Processing large datasets efficiently without excessive memory usage.</li>
@@ -92,28 +117,6 @@
         </ul>
 
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Polars_logo.png/800px-Polars_logo.png" alt="Polars DataFrame Library">
-
-        <h2>Installation & Setup</h2>
-        <h3>Installing Polars in Python</h3>
-        <p>To install the Polars library in a Python environment, use the following command:</p>
-        <pre><code>pip install polars</code></pre>
-        <p>If additional dependencies such as CSV, Parquet, or JSON support are required, the following installation command can be used:</p>
-        <pre><code>pip install polars[all]</code></pre>
-
-        <h3>Installing Polars in Rust</h3>
-        <p>For developers working with Rust, Polars can be added to a project by modifying the <b>Cargo.toml</b> file:</p>
-        <pre><code>[dependencies]
-polars = "0.38.0"</code></pre>
-
-        <h2>Key Features</h2>
-        <p>Polars introduces several features that distinguish it from traditional DataFrame libraries:</p>
-        <ul>
-            <li><b>High Performance:</b> Utilizes Rust for optimized speed and efficiency.</li>
-            <li><b>Lazy Execution:</b> Reduces computational overhead by executing operations only when necessary.</li>
-            <li><b>Multi-threaded Processing:</b> Supports parallel computation across multiple CPU cores.</li>
-            <li><b>Low Memory Consumption:</b> Optimized for handling large datasets efficiently.</li>
-            <li><b>Wide Format Support:</b> Works with CSV, JSON, Parquet, and other data formats.</li>
-        </ul>
 
         <h2>Code Examples</h2>
         <h3>Creating a DataFrame</h3>
@@ -163,17 +166,20 @@ df.write_parquet("output.parquet")</code></pre>
         </table>
     </div>
 
-    <footer>
-        &copy; 2025 Orange: Drag, Drop and Analyze. All rights reserved.
-        <br><br>
-        <a href="#">About</a> | <a href="#">Video</a> | <a href="https://github.com/pola-rs/polars" target="_blank">GitHub</a>
-        <br><br>
-        <h3>References & Further Reading</h3>
-        <ul style="list-style-type: none; padding: 0;">
+    <!-- References & Further Reading Section -->
+    <div class="references">
+        <h2>References & Further Reading</h2>
+        <ul>
             <li><a href="https://pola.rs/" target="_blank">Polars Official Website</a></li>
             <li><a href="https://github.com/pola-rs/polars" target="_blank">Polars GitHub Repository</a></li>
             <li><a href="https://pola.rs/guide/" target="_blank">Polars User Guide</a></li>
         </ul>
+    </div>
+
+    <footer>
+        &copy; 2025 Orange: Drag, Drop and Analyze. All rights reserved.
+        <br><br>
+        <a href="#">About</a> | <a href="#">Video</a> | <a href="https://github.com/pola-rs/polars" target="_blank">GitHub</a>
     </footer>
 </body>
 </html>
