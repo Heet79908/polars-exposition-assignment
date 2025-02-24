@@ -9,21 +9,21 @@
             font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f0f8ff;
             color: #222;
             line-height: 1.6;
         }
         header {
-            background: linear-gradient(to right, #004080, #0066cc);
+            background: linear-gradient(to right, #003366, #0066cc);
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 30px;
+            font-size: 32px;
             font-weight: bold;
             font-family: 'Arial', sans-serif;
         }
         .container {
-            width: 80%;
+            width: 85%;
             margin: auto;
             background: white;
             padding: 30px;
@@ -32,45 +32,51 @@
             margin-top: 30px;
         }
         h2 {
-            color: #004080;
-            border-bottom: 2px solid #0066cc;
+            color: #003366;
+            border-bottom: 3px solid #0066cc;
             padding-bottom: 8px;
             font-family: 'Arial', sans-serif;
         }
         h3 {
-            color: #004080;
-            font-size: 20px;
+            color: #003366;
+            font-size: 22px;
         }
         pre {
-            background: #2b2b2b;
-            color: #fff;
+            background: #282c34;
+            color: #ffffff;
             padding: 12px;
             border-radius: 5px;
             overflow-x: auto;
             font-family: 'Courier New', monospace;
-            font-size: 15px;
+            font-size: 16px;
         }
         p {
             text-align: justify;
         }
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 20px;
         }
         table, th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
+            border: 1px solid #003366;
+            padding: 10px;
             text-align: left;
         }
         th {
-            background-color: #004080;
+            background-color: #003366;
             color: white;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background: #004080;
+            background: #003366;
             color: white;
             margin-top: 30px;
             font-size: 14px;
@@ -82,39 +88,39 @@
     
     <div class="container">
         <h2>Introduction</h2>
-        <p>Polars is an advanced DataFrame library designed for high-performance data analysis. It provides an efficient alternative to traditional tools such as Pandas, offering improved speed and memory management.</p>
-        <p>Unlike many existing libraries, Polars is built on the Rust programming language, leveraging its inherent advantages in performance and safety. It is particularly well-suited for handling large datasets, thanks to its ability to perform multi-threaded operations and lazy evaluation.</p>
-        <p><b>Polars is ideal for:</b></p>
+        <p>Polars is a powerful DataFrame library designed for high-speed data manipulation and analysis. It is built on the <b>Rust programming language</b>, providing a highly efficient alternative to traditional tools like Pandas. Due to its multi-threading capabilities and lazy evaluation, Polars significantly improves performance when handling large datasets.</p>
+
+        <p><b>Why choose Polars?</b></p>
         <ul>
-            <li>Processing large datasets efficiently without excessive memory usage.</li>
-            <li>Performing computations in parallel to utilize multiple CPU cores.</li>
-            <li>Executing lazy operations that optimize query execution.</li>
+            <li>Efficiently processes large datasets without high memory consumption.</li>
+            <li>Leverages multi-threading for faster computations.</li>
+            <li>Supports lazy execution for optimized query processing.</li>
+            <li>Compatible with popular formats like CSV, JSON, and Parquet.</li>
         </ul>
 
         <h2>Installation & Setup</h2>
         <h3>Installing Polars in Python</h3>
-        <p>To install the Polars library in a Python environment, use the following command:</p>
+        <p>To install the Polars library in a Python environment, run:</p>
         <pre><code>pip install polars</code></pre>
-        <p>If additional dependencies such as CSV, Parquet, or JSON support are required, the following installation command can be used:</p>
+        <p>To include dependencies for handling multiple data formats, install:</p>
         <pre><code>pip install polars[all]</code></pre>
 
         <h3>Installing Polars in Rust</h3>
-        <p>For developers working with Rust, Polars can be added to a project by modifying the <b>Cargo.toml</b> file:</p>
+        <p>For Rust users, add Polars as a dependency in the <b>Cargo.toml</b> file:</p>
         <pre><code>[dependencies]
 polars = "0.38.0"</code></pre>
 
         <h2>Key Features</h2>
-        <p>Polars introduces several features that distinguish it from traditional DataFrame libraries:</p>
         <ul>
-            <li><b>High Performance:</b> Utilizes Rust for optimized speed and efficiency.</li>
-            <li><b>Lazy Execution:</b> Reduces computational overhead by executing operations only when necessary.</li>
-            <li><b>Multi-threaded Processing:</b> Supports parallel computation across multiple CPU cores.</li>
-            <li><b>Low Memory Consumption:</b> Optimized for handling large datasets efficiently.</li>
-            <li><b>Wide Format Support:</b> Works with CSV, JSON, Parquet, and other data formats.</li>
+            <li><b>High Performance:</b> Uses Rust for optimized speed and efficiency.</li>
+            <li><b>Lazy Execution:</b> Reduces computational overhead by optimizing query execution.</li>
+            <li><b>Multi-threading:</b> Supports parallel processing across multiple CPU cores.</li>
+            <li><b>Memory Efficiency:</b> Handles large datasets without excessive memory usage.</li>
+            <li><b>Wide File Format Support:</b> Compatible with CSV, JSON, Parquet, and more.</li>
         </ul>
 
         <h2>Code Examples</h2>
-        <h3>Creating a DataFrame in Python</h3>
+        <h3>Creating a DataFrame</h3>
         <pre><code>import polars as pl
 
 df = pl.DataFrame({
@@ -137,11 +143,11 @@ print(filtered_df)</code></pre>
 df.write_parquet("output.parquet")</code></pre>
 
         <h2>Use Cases</h2>
-        <p>Polars can be applied in multiple domains where high-speed data processing is crucial:</p>
+        <p>Polars is widely used in various domains:</p>
         <ul>
-            <li><b>Big Data Analytics:</b> Suitable for handling large-scale datasets efficiently.</li>
-            <li><b>Machine Learning:</b> Optimized for feature engineering and data transformation.</li>
-            <li><b>Financial Data Processing:</b> Effective for managing time-series and stock market data.</li>
+            <li><b>Big Data Analytics:</b> Processes massive datasets efficiently.</li>
+            <li><b>Machine Learning:</b> Supports data preprocessing and feature engineering.</li>
+            <li><b>Financial Analysis:</b> Ideal for handling stock market and time-series data.</li>
         </ul>
 
         <h2>Comparison: Polars vs Pandas</h2>
@@ -166,23 +172,27 @@ df.write_parquet("output.parquet")</code></pre>
                 <td>Single-threaded</td>
                 <td>Multi-threaded (faster)</td>
             </tr>
+            <tr>
+                <td>Memory Usage</td>
+                <td>Higher</td>
+                <td>Lower</td>
+            </tr>
         </table>
 
         <h2>Frequently Asked Questions</h2>
         <h3>Why use Polars instead of Pandas?</h3>
-        <p>Polars is significantly faster than Pandas due to its underlying Rust implementation and multi-threading capabilities. It is particularly advantageous for large datasets where performance is critical.</p>
+        <p>Polars offers <b>superior performance</b> for large datasets due to its Rust-based backend and multi-threading capabilities.</p>
 
-        <h3>Can Polars be used for Machine Learning?</h3>
-        <p>Yes, Polars is an excellent tool for data preprocessing in machine learning workflows. It allows efficient data transformation and feature extraction.</p>
+        <h3>Is Polars suitable for real-time applications?</h3>
+        <p>Yes, Polars is optimized for <b>real-time data processing</b> and can efficiently handle streaming data.</p>
 
         <h2>Conclusion</h2>
-        <p>Polars is a powerful and efficient DataFrame library that is well-suited for modern data analytics. Its ability to process large datasets quickly, combined with its low memory footprint, makes it an excellent choice for data scientists and engineers.</p>
+        <p>Polars is a revolutionary DataFrame library that provides high-performance data manipulation. Its capabilities make it an excellent choice for handling large datasets with optimized speed and efficiency.</p>
 
         <h2>References & Further Reading</h2>
         <ul>
             <li><a href="https://pola.rs/">Polars Official Website</a></li>
             <li><a href="https://github.com/pola-rs/polars">Polars GitHub Repository</a></li>
-            <li><a href="https://pola.rs/guide/">Polars User Guide</a></li>
         </ul>
     </div>
     
