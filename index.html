@@ -76,7 +76,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: pink;
+            background: #003366;
             color: white;
             margin-top: 30px;
             font-size: 14px;
@@ -202,23 +202,23 @@ print(correlation)</code></pre>
         <h3>Creating a Polars DataFrame</h3>
         <p>The code initializes a Polars DataFrame using a dictionary with different data types, including integers, floats, and strings.
 It then converts this dictionary into a Polars DataFrame and displays it.</p>
-        <img src="i4.jpg" alt="Description" width="100">
+        <img src="i4.jpg" alt="Description" width="500">
         <h3>Performing Operations on Data</h3>
         <p>Two new columns are added:
 Age_in_months: Converts the age values from years to months by multiplying by 12.
 Status_Updated: Modifies the "Status" column by appending " - Active" to each value.</p>
-        <img src="i3.jpg" alt="Description" width="100">
+        <img src="i3.jpg" alt="Description" width="500">
         <h3>Filtering Data Based on Multiple Conditions</h3>
         <p>The code filters rows where:
 The "Height" column is greater than 5.8.
 The "Status" column is "Single".
 This results in a smaller DataFrame containing only rows that meet both conditions.</p>
-        <img src="i2.jpg" alt="Description" width="100">
+        <img src="i2.jpg" alt="Description" width="500">
         <h3> Comparing Pandas vs Polars Performance</h3>
         <p>A dataset with 10 million rows is generated using NumPy and tested with both Pandas and Polars.
 The dataset contains names, ages, cities, and salaries.
 Each library sorts the dataset based on the "Salary" column and calculates a 10% salary increase.</p>
-        <img src="i1.jpg" alt="Description" width="100">
+        <img src="i1.jpg" alt="Description" width="500">
         <h3>Performance Results</h3>
         <p>Pandas Execution Time: ~21.71 seconds.
 Polars Execution Time: ~12.65 seconds.
