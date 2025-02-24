@@ -155,6 +155,49 @@ print(filtered_df)</code></pre>
         <h3>Reading & Writing Data</h3>
         <pre><code>df = pl.read_csv("data.csv")
 df.write_parquet("output.parquet")</code></pre>
+        
+                <h3>Example 1: Analyzing Stress Levels in Students</h3>
+        <p>This example explores stress levels among students based on study hours and exams. We categorize stress into <b>Low</b>, <b>Moderate</b>, and <b>High</b> levels and analyze the impact of study time.</p>
+        <pre><code>import polars as pl
+
+# Load student stress dataset
+df = pl.read_csv("student_stress.csv")
+
+# Categorize stress levels
+df = df.with_columns(
+    pl.when(pl.col("Stress Score") < 4).then("Low")
+    .when(pl.col("Stress Score") < 7).then("Moderate")
+    .otherwise("High")
+    .alias("Stress Level")
+)
+
+# Compute average stress score per study hour
+avg_stress = df.groupby("Study Hours").agg(pl.col("Stress Score").mean())
+
+# Display results
+print(df)
+print(avg_stress)</code></pre>
+
+        <h3>Example 2: Relating Suicide Rates to Stress Levels</h3>
+        <p>Here, we analyze how stress levels impact suicide rates across different age groups. We use statistical correlation to find patterns in mental health data.</p>
+        <pre><code>import polars as pl
+
+# Load dataset containing suicide rates and stress levels
+df = pl.read_csv("suicide_stress_data.csv")
+
+# Convert age groups to categorical data
+df = df.with_columns(pl.col("Age Group").cast(pl.Categorical))
+
+# Calculate average suicide rate per stress level
+suicide_trend = df.groupby("Stress Level").agg(pl.col("Suicide Rate").mean())
+
+# Compute correlation between stress and suicide rates
+correlation = df.select(pl.corr("Stress Score", "Suicide Rate"))
+
+# Display results
+print(suicide_trend)
+print(correlation)</code></pre>
+
 
         <h2>Use Cases</h2>
         <p>Polars is widely used in various domains:</p>
