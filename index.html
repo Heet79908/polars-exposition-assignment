@@ -100,26 +100,34 @@ polars = "0.38.0"</code></pre>
         </ul>
 
         <h2>Code Examples</h2>
-        <h3>Creating a DataFrame</h3>
+        <h3>Creating a DataFrame in Python</h3>
         <pre><code>import polars as pl
 
+# Creating a DataFrame with sample data
 df = pl.DataFrame({
     "Name": ["Alice", "Bob", "Charlie"],
     "Age": [25, 30, 35],
     "Salary": [50000, 60000, 70000]
 })
 
+# Display the DataFrame
 print(df)</code></pre>
 
         <h3>Filtering Data</h3>
-        <pre><code>filtered_df = df.filter(pl.col("Age") > 28)
+        <pre><code># Filtering rows where Age is greater than 28
+filtered_df = df.filter(pl.col("Age") > 28)
+
 print(filtered_df)</code></pre>
 
         <h3>Grouping & Aggregating</h3>
-        <pre><code>df.groupby("Age").agg(pl.col("Salary").sum())</code></pre>
+        <pre><code># Grouping by Age and summing the Salary column
+df.groupby("Age").agg(pl.col("Salary").sum())</code></pre>
 
         <h3>Reading & Writing Data</h3>
-        <pre><code>df = pl.read_csv("data.csv")
+        <pre><code># Reading from a CSV file
+df = pl.read_csv("data.csv")
+
+# Writing to a Parquet file
 df.write_parquet("output.parquet")</code></pre>
 
         <h2>Use Cases</h2>
