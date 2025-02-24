@@ -41,12 +41,6 @@
             border-radius: 5px;
             overflow-x: auto;
         }
-        img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -55,15 +49,6 @@
             margin-top: 20px;
             font-size: 16px;
         }
-        .faq {
-            background: #e8f4ff;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        .faq h3 {
-            color: #005bb5;
-        }
     </style>
 </head>
 <body>
@@ -71,15 +56,31 @@
     
     <div class="container">
         <h2>Introduction</h2>
-        <p><strong>Polars</strong> is a high-performance DataFrame library for Python and Rust, built for handling large datasets efficiently. It is faster than Pandas, uses parallel processing, and supports lazy evaluation for optimized execution.</p>
-        
-        <h2>Installation</h2>
-        <p>To install Polars, run:</p>
+        <p>Polars is a high-performance DataFrame library designed for handling large-scale data efficiently. Unlike Pandas, Polars is built using <strong>Rust</strong>, allowing it to leverage <strong>multi-threading, lazy execution, and efficient memory usage</strong>. This makes it significantly faster and more scalable for modern data applications.</p>
+
+        <h2>Installation & Setup</h2>
+        <h3>Installing Polars in Python</h3>
+        <p>To install Polars, simply run:</p>
         <pre><code>pip install polars</code></pre>
-        <p>For additional functionality (CSV, Parquet, Excel support):</p>
+
+        <p>For full functionality, including CSV, Parquet, and JSON support, install:</p>
         <pre><code>pip install polars[all]</code></pre>
 
-        <h2>Getting Started with Polars</h2>
+        <h3>Installing Polars in Rust</h3>
+        <p>If you are using Rust, add Polars to your project:</p>
+        <pre><code>[dependencies]
+polars = "0.38.0"</code></pre>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>🚀 High-Speed Performance</strong>: Uses Rust for faster computation.</li>
+            <li><strong>⚡ Lazy Execution</strong>: Optimizes query plans for efficiency.</li>
+            <li><strong>🔄 Multi-threading</strong>: Utilizes all CPU cores for parallel processing.</li>
+            <li><strong>💾 Low Memory Usage</strong>: Efficient handling of large datasets.</li>
+            <li><strong>📂 Multi-Format Support</strong>: Reads and writes CSV, JSON, and Parquet files.</li>
+        </ul>
+
+        <h2>Code Examples</h2>
         <h3>Creating a DataFrame</h3>
         <pre><code>import polars as pl
 
@@ -91,25 +92,22 @@ df = pl.DataFrame({
 
 print(df)</code></pre>
 
-        <h3>Filtering & Querying</h3>
+        <h3>Filtering Data</h3>
         <pre><code>filtered_df = df.filter(pl.col("age") > 28)
 print(filtered_df)</code></pre>
 
-        <h3>Aggregations & Grouping</h3>
+        <h3>Aggregating Data</h3>
         <pre><code>df.groupby("age").agg(pl.col("salary").sum())</code></pre>
 
         <h3>Reading & Writing Data</h3>
-        <p>Polars supports multiple file formats like CSV, JSON, and Parquet:</p>
         <pre><code>df = pl.read_csv("data.csv")
 df.write_parquet("output.parquet")</code></pre>
 
-        <h2>Key Features of Polars</h2>
+        <h2>Use Cases</h2>
         <ul>
-            <li><strong>🚀 Speed & Performance</strong>: Uses Rust for faster computations.</li>
-            <li><strong>⚡ Lazy Evaluation</strong>: Executes queries only when necessary.</li>
-            <li><strong>🔄 Parallel Processing</strong>: Utilizes all CPU cores.</li>
-            <li><strong>💾 Memory Efficient</strong>: Uses columnar storage.</li>
-            <li><strong>📂 Multi-Format Support</strong>: Works with CSV, JSON, Parquet, and more.</li>
+            <li><strong>Big Data Analytics</strong>: Handles large-scale data efficiently.</li>
+            <li><strong>Machine Learning</strong>: Optimized for feature engineering and data preprocessing.</li>
+            <li><strong>Financial Data Processing</strong>: Suitable for high-performance time-series data analysis.</li>
         </ul>
 
         <h2>Comparison: Polars vs Pandas</h2>
@@ -120,60 +118,50 @@ df.write_parquet("output.parquet")</code></pre>
                 <th>Polars</th>
             </tr>
             <tr>
+                <td>Language</td>
+                <td>Python (C-based)</td>
+                <td>Rust (Python API)</td>
+            </tr>
+            <tr>
+                <td>Execution Model</td>
+                <td>Row-wise, immediate execution</td>
+                <td>Columnar, lazy execution</td>
+            </tr>
+            <tr>
                 <td>Performance</td>
-                <td>Slower on large data</td>
-                <td>Faster with parallelism</td>
+                <td>Single-threaded</td>
+                <td>Multi-threaded (faster)</td>
             </tr>
             <tr>
-                <td>Lazy Execution</td>
-                <td>No</td>
-                <td>Yes</td>
+                <td>Memory Efficiency</td>
+                <td>Higher memory usage</td>
+                <td>Lower memory usage</td>
             </tr>
             <tr>
-                <td>Memory Usage</td>
-                <td>High</td>
-                <td>Lower</td>
-            </tr>
-            <tr>
-                <td>Parallel Processing</td>
-                <td>No</td>
-                <td>Yes</td>
+                <td>Best For</td>
+                <td>Small to medium datasets</td>
+                <td>Large-scale data processing</td>
             </tr>
         </table>
 
-        <h2>Use Cases</h2>
-        <ul>
-            <li><strong>Big Data Analytics</strong>: Handles massive datasets efficiently.</li>
-            <li><strong>Machine Learning</strong>: Faster feature engineering and data preprocessing.</li>
-            <li><strong>Financial Data Processing</strong>: Ideal for high-speed financial modeling.</li>
-        </ul>
-
         <h2>Frequently Asked Questions</h2>
-        <div class="faq">
-            <h3>Why should I use Polars?</h3>
-            <p>Polars is perfect for large-scale data processing, offering superior speed and efficiency compared to Pandas.</p>
-        </div>
-        <div class="faq">
-            <h3>Does Polars replace Pandas?</h3>
-            <p>While Polars is faster for many tasks, Pandas is still widely used for smaller datasets and legacy code.</p>
-        </div>
-        <div class="faq">
-            <h3>How can I convert Pandas DataFrames to Polars?</h3>
-            <pre><code>import pandas as pd
-import polars as pl
+        <h3>Why should I use Polars over Pandas?</h3>
+        <p>Polars is significantly faster than Pandas for large datasets due to its **parallel execution** and **lazy evaluation** features. It also consumes less memory, making it ideal for big data applications.</p>
 
-pandas_df = pd.DataFrame({"A": [1, 2, 3]})
-polars_df = pl.from_pandas(pandas_df)</code></pre>
-        </div>
+        <h3>Does Polars support all Pandas functionalities?</h3>
+        <p>While Polars supports most essential Pandas functionalities, it follows a **columnar execution model** and does not rely on NumPy, making some operations different. However, it is highly optimized for performance.</p>
+
+        <h3>Can I use Polars with machine learning libraries?</h3>
+        <p>Yes! Polars can be used with libraries like **scikit-learn, TensorFlow, and PyTorch** for efficient data preprocessing and feature engineering.</p>
 
         <h2>Conclusion</h2>
-        <p>Polars is a <strong>game-changer</strong> for high-performance data analysis, offering faster execution, lower memory usage, and parallel processing. If you're working with large datasets, Polars is an excellent alternative to Pandas.</p>
-        
+        <p>Polars is a powerful alternative to Pandas for those working with large datasets. With its **Rust-based backend, multi-threaded execution, and optimized query engine**, it offers unmatched performance in data analysis.</p>
+
         <h2>References & Further Reading</h2>
         <ul>
             <li><a href="https://pola.rs/">Polars Official Website</a></li>
-            <li><a href="https://github.com/pola-rs/polars">GitHub Repository</a></li>
-            <li><a href="https://pola.rs/book/">Polars User Guide</a></li>
+            <li><a href="https://github.com/pola-rs/polars">Polars GitHub Repository</a></li>
+            <li><a href="https://pola.rs/guide/">Polars User Guide</a></li>
         </ul>
     </div>
     
