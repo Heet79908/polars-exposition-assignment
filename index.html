@@ -198,6 +198,31 @@ correlation = df.select(pl.corr("Stress Score", "Suicide Rate"))
 print(suicide_trend)
 print(correlation)</code></pre>
 
+        <h2>Explaining using Screenshots</h2>
+        <h3>Creating a Polars DataFrame</h3>
+        <p>The code initializes a Polars DataFrame using a dictionary with different data types, including integers, floats, and strings.
+It then converts this dictionary into a Polars DataFrame and displays it.</p>
+        <h3>Performing Operations on Data</h3>
+        <p>Two new columns are added:
+Age_in_months: Converts the age values from years to months by multiplying by 12.
+Status_Updated: Modifies the "Status" column by appending " - Active" to each value.</p>
+        <h3>Filtering Data Based on Multiple Conditions</h3>
+        <p>The code filters rows where:
+The "Height" column is greater than 5.8.
+The "Status" column is "Single".
+This results in a smaller DataFrame containing only rows that meet both conditions.</p>
+        <h3> Comparing Pandas vs Polars Performance</h3>
+        <p>A dataset with 10 million rows is generated using NumPy and tested with both Pandas and Polars.
+The dataset contains names, ages, cities, and salaries.
+Each library sorts the dataset based on the "Salary" column and calculates a 10% salary increase.</p>
+        <h3>Performance Results</h3>
+        <p>Pandas Execution Time: ~21.71 seconds.
+Polars Execution Time: ~12.65 seconds.
+Conclusion: Polars performs significantly faster than Pandas, making it more efficient for large datasets.</p>
+
+        
+        
+
 
         <h2>Use Cases</h2>
         <p>Polars is widely used in various domains:</p>
