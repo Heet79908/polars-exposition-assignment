@@ -156,49 +156,9 @@ print(filtered_df)</code></pre>
         <pre><code>df = pl.read_csv("data.csv")
 df.write_parquet("output.parquet")</code></pre>
         
-                <h3>Example 1: Analyzing Stress Levels in Students</h3>
-        <p>This example explores stress levels among students based on study hours and exams. We categorize stress into <b>Low</b>, <b>Moderate</b>, and <b>High</b> levels and analyze the impact of study time.</p>
-        <pre><code>import polars as pl
+                
 
-# Load student stress dataset
-df = pl.read_csv("student_stress.csv")
-
-# Categorize stress levels
-df = df.with_columns(
-    pl.when(pl.col("Stress Score") < 4).then("Low")
-    .when(pl.col("Stress Score") < 7).then("Moderate")
-    .otherwise("High")
-    .alias("Stress Level")
-)
-
-# Compute average stress score per study hour
-avg_stress = df.groupby("Study Hours").agg(pl.col("Stress Score").mean())
-
-# Display results
-print(df)
-print(avg_stress)</code></pre>
-
-        <h3>Example 2: Relating Suicide Rates to Stress Levels</h3>
-        <p>Here, we analyze how stress levels impact suicide rates across different age groups. We use statistical correlation to find patterns in mental health data.</p>
-        <pre><code>import polars as pl
-
-# Load dataset containing suicide rates and stress levels
-df = pl.read_csv("suicide_stress_data.csv")
-
-# Convert age groups to categorical data
-df = df.with_columns(pl.col("Age Group").cast(pl.Categorical))
-
-# Calculate average suicide rate per stress level
-suicide_trend = df.groupby("Stress Level").agg(pl.col("Suicide Rate").mean())
-
-# Compute correlation between stress and suicide rates
-correlation = df.select(pl.corr("Stress Score", "Suicide Rate"))
-
-# Display results
-print(suicide_trend)
-print(correlation)</code></pre>
-
-        <h2>Explaining using Screenshots</h2>
+        <h2>Why Polars over Pandas?</h2>
         <h3>Creating a Polars DataFrame</h3>
         <p>The code initializes a Polars DataFrame using a dictionary with different data types, including integers, floats, and strings.
 It then converts this dictionary into a Polars DataFrame and displays it.</p>
@@ -221,8 +181,8 @@ Each library sorts the dataset based on the "Salary" column and calculates a 10%
         <img src="image1.jpg" alt="Description" >
         <h3>Performance Results</h3>
         <p>Pandas Execution Time: ~21.71 seconds.
-Polars Execution Time: ~12.65 seconds.
-Conclusion: Polars performs significantly faster than Pandas, making it more efficient for large datasets.</p>
+Polars Execution Time: ~12.65 seconds.</p>
+<p>Conclusion: Polars performs significantly faster than Pandas, making it more efficient for large datasets.</p>
 
         
         
