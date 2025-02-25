@@ -113,7 +113,7 @@ polars = "0.38.0"</code></pre>
         <h2>Key Features</h2>
         <h3>1. High Performance</h3>
         <p>Polars is designed for speed, using Rust’s memory safety and concurrency features to outperform traditional libraries. Its efficient data structures and parallel execution model allow it to process massive datasets much faster than Pandas, making it ideal for real-time analytics, financial modeling, and machine learning workflows.</p>
-        <img src="i1.jpg" alt="Description" >
+        <img src="images/i1.jpg" alt="Description" >
         <h3>2. Lazy Execution</h3>
         <p>Instead of executing operations immediately, Polars builds a query plan and executes it only when needed. This lazy evaluation reduces unnecessary computations, optimizes query execution, and speeds up workflows, especially when working with large datasets, making it significantly more efficient than eager execution-based libraries like Pandas.</p>
         <img src="images/i7.jpg" alt="Description" >
@@ -122,16 +122,16 @@ polars = "0.38.0"</code></pre>
          
         <h3>4. Memory Efficiency</h3>
         <p>Polars is optimized for handling large datasets without excessive memory usage. Its columnar data storage format ensures that only the necessary columns are loaded into memory, reducing overall footprint. This makes Polars a great choice for cloud-based applications and environments where memory is a constraint.</p>
-        <img src="i3.jpg" alt="Description" >
+        <img src="images/i3.jpg" alt="Description" >
         <h3>5. Heterogeneous Column Handling</h3>
         <p>Unlike many other DataFrame libraries, Polars efficiently manages heterogeneous columns, allowing different data types within the same DataFrame. It seamlessly supports operations on mixed-type data without performance degradation, making it particularly useful for handling real-world datasets that contain numeric, string, and categorical data together.</p>
-        <img src="i2.jpg" alt="Description" >
+        <img src="images/i2.jpg" alt="Description" >
         <h3>6. Wide File Format Support</h3>
         <p>Polars natively supports various data formats, including CSV, JSON, Parquet, and Arrow. This makes it highly versatile for data ingestion, whether from local storage, cloud services, or big data pipelines. With built-in read and write functionalities, it seamlessly integrates with modern data engineering workflows.</p>
 
         <h3>7. SQL-like Querying</h3>
         <p>With an intuitive API similar to SQL, Polars makes data manipulation easy for those familiar with database queries. Users can filter, group, join, and aggregate data efficiently using simple syntax, eliminating the need for complex procedural coding when handling large datasets.</p>
-        <img src="i4.jpg" alt="Description" >
+        <img src="images/i4.jpg" alt="Description" >
 
         <h2>Code Examples</h2>
         <h3>Creating a DataFrame</h3>
@@ -162,23 +162,23 @@ df.write_parquet("output.parquet")</code></pre>
         <h3>Creating a Polars DataFrame</h3>
         <p>The code initializes a Polars DataFrame using a dictionary with different data types, including integers, floats, and strings.
 It then converts this dictionary into a Polars DataFrame and displays it.</p>
-        <img src="image4.jpg" alt="Description" >
+        <img src="images/image4.jpg" alt="Description" >
         <h3>Performing Operations on Data</h3>
         <p>Two new columns are added:
 Age_in_months: Converts the age values from years to months by multiplying by 12.
 Status_Updated: Modifies the "Status" column by appending " - Active" to each value.</p>
-        <img src="image3.jpg" alt="Description" >
+        <img src="images/image3.jpg" alt="Description" >
         <h3>Filtering Data Based on Multiple Conditions</h3>
         <p>The code filters rows where:
 The "Height" column is greater than 5.8.
 The "Status" column is "Single".
 This results in a smaller DataFrame containing only rows that meet both conditions.</p>
-        <img src="image2.jpg" alt="Description" >
+        <img src="images/image2.jpg" alt="Description" >
         <h3> Comparing Pandas vs Polars Performance</h3>
         <p>A dataset with 10 million rows is generated using NumPy and tested with both Pandas and Polars.
 The dataset contains names, ages, cities, and salaries.
 Each library sorts the dataset based on the "Salary" column and calculates a 10% salary increase.</p>
-        <img src="image1.jpg" alt="Description" >
+        <img src="images/image1.jpg" alt="Description" >
         <h3>Performance Results</h3>
         <p>Pandas Execution Time: ~21.71 seconds.
 Polars Execution Time: ~12.65 seconds.</p>
